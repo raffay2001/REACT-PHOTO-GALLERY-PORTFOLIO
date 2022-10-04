@@ -8,10 +8,11 @@ const HeroBanner = () => {
         City.
       </h1>
       <p className="hero-content">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum, porro
-        consequuntur incidunt eveniet obcaecati.
+        Clicking the memorable moments
+        of your life. With perfection and creativity your photos will speak
+        themselves.
       </p>
-      <button className="hero-btn">avaiable for hire</button>
+      <button className="hero-btn">available for hire</button>
     </div>
   );
 };
