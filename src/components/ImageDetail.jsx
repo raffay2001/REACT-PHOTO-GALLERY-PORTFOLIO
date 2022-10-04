@@ -1,12 +1,24 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 
-const ImageDetail = () => {
+const ImageDetail = ({ singlePicture }) => {
   return (
     <>
-      <h1>
-        Image Details of Image no. {useParams()["id"]}
-      </h1>
+      <div className="image-detail-container">
+        <div className="image-detail-parent">
+          <img
+            src={singlePicture?.largeImageURL}
+            alt={singlePicture?.tags?.split(",")[0]}
+          />
+        </div>
+
+        <div className="image-details">
+          <p>Tags: {singlePicture?.tags}</p>
+          <p>Collections: {singlePicture?.collections}</p>
+          <p>Likes: {singlePicture?.likes}</p>
+          <p>Views: {singlePicture?.views}</p>
+          <p>Downloads: {singlePicture?.downloads}</p>
+        </div>
+      </div>
     </>
   );
 };

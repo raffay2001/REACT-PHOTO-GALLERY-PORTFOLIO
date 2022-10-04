@@ -6,6 +6,20 @@ import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [pictures, setPictures] = useState([]);
+  const [singlePicture, setSinglePicture] = useState({});
+
+  const fetchSinglePhoto = async (id) => {
+    const response = await getPhotos(
+      `https://pixabay.com/api/?key=21114388-4a21c4c995e14e9ba7090ae35&image_type=photo&id=${id}`
+    );
+    if (response?.hits?.length > 0) {
+      setSinglePicture(response?.hits[0]);
+      console.log(response?.hits[0]);
+    } else {
+      setSinglePicture({});
+    }
+  };
+
   useEffect(() => {
     const fetchPhotos = async () => {
       const response = await getPhotos(
@@ -21,6 +35,7 @@ const App = () => {
     };
     fetchPhotos();
   }, []);
+
   return (
     <div className="parent-container">
       {/* Navbar */}
@@ -28,10 +43,10 @@ const App = () => {
 
       <Routes>
         {/* Home  */}
-        <Route path="/" element={<Home pictures={pictures} />}/>
+        <Route path="/" element={<Home fetchSinglePhoto={fetchSinglePhoto} pictures={pictures} />} />
 
         {/* ImageDetail  */}
-        <Route path="/image/:id" element={<ImageDetail />} />
+        <Route path="/image/:id" element={<ImageDetail singlePicture={singlePicture} />} />
       </Routes>
 
       {/* Footer  */}

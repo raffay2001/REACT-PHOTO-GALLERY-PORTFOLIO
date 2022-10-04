@@ -251,6 +251,21 @@ body {
   text-align: center;
 }
 
+.image-detail-container{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 5rem 1rem;
+}
+
+.image-detail-parent img{
+  width: 555px;
+  height: 555px;
+  border-radius: 12px;
+}
+
 /*--------------------------------------------MOBILE DEVICES MEDIA QUERY----------------------------------------*/
 @media screen and (max-width: 768px) {
   .hero-banner-container {
@@ -284,5 +299,10 @@ body {
   .image-container img {
     width: 8rem;
     height: 8rem;
+  }
+  .image-detail-parent img{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
   }
 }

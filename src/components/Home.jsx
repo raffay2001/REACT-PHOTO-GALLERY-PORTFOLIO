@@ -1,13 +1,13 @@
 import React from "react";
 import { HeroBanner, ImageGrid } from "./index";
 
-const Home = ({ pictures }) => {
+const Home = ({ pictures, fetchSinglePhoto }) => {
   return (
     <>
       {/* HeroBanner */}
       <HeroBanner />
       {/* ImageGrid  */}
-      <ImageGrid pictures={pictures} />
+      <ImageGrid fetchSinglePhoto={fetchSinglePhoto} pictures={pictures} />
     </>
   );
 };
