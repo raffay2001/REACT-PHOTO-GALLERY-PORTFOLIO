@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -22,9 +23,11 @@ const Navbar = () => {
   return (
     <header>
       <nav className="navbar">
-        <div className="logo-container">
-          <h2>Jenny Wilson.</h2>
-        </div>
+        <Link to="/" className="home-page-link">
+          <div className="logo-container">
+            <h2>Jenny Wilson.</h2>
+          </div>
+        </Link>
 
         {!showMenu && (
           <ul className="nav-links">

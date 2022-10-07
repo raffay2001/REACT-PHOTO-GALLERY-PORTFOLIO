@@ -1,4 +1,22 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload, faTags, faVideo } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faRectangleList, faThumbsUp } from "@fortawesome/free-regular-svg-icons";
+
+export const TagPill = ({ tageName }) => {
+  return <span className="tag-pill-conatainer">{tageName}</span>;
+};
+
+export const TagContainer = ({ tags }) => {
+  const tagsArray = tags?.split(",");
+  return (
+    <>
+      {tagsArray?.map((item) => (
+        <TagPill tageName={item} />
+      ))}
+    </>
+  );
+};
 
 const ImageDetail = ({ singlePicture }) => {
   return (
@@ -12,11 +30,41 @@ const ImageDetail = ({ singlePicture }) => {
         </div>
 
         <div className="image-details">
-          <p>Tags: {singlePicture?.tags}</p>
-          <p>Collections: {singlePicture?.collections}</p>
-          <p>Likes: {singlePicture?.likes}</p>
-          <p>Views: {singlePicture?.views}</p>
-          <p>Downloads: {singlePicture?.downloads}</p>
+          <div className="details-container">
+            <span className="picture-detail">
+              <FontAwesomeIcon icon={faTags} /> tags:
+            </span>{" "}
+            <TagContainer tags={singlePicture?.tags} />
+          </div>
+
+          <div className="details-container">
+            <span className="picture-detail">
+              <FontAwesomeIcon icon={faRectangleList} /> collections: 
+            </span>{" "}
+            <span className="img-content">{singlePicture?.collections}</span>
+          </div>
+
+          <div className="details-container">
+            <span className="picture-detail">
+              <FontAwesomeIcon icon={faThumbsUp} /> likes:
+            </span>{" "}
+            <span className="img-content">{singlePicture?.likes}</span>
+          </div>
+
+          <div className="details-container">
+            <span className="picture-detail">
+              <FontAwesomeIcon icon={faEye} /> views:
+            </span>{" "}
+            <span className="img-content">{singlePicture?.views}</span>
+          </div>
+
+          <div className="details-container">
+            <span className="picture-detail">
+              <FontAwesomeIcon icon={faDownload} /> downloads :
+            </span>{" "}
+            <span className="img-content">{singlePicture?.downloads}</span>
+          </div>
+          
         </div>
       </div>
     </>
