@@ -48,9 +48,6 @@ const App = () => {
         {/* ImageDetail  */}
         <Route path="/image/:id" element={<ImageDetail singlePicture={singlePicture} />} />
       </Routes>
-
-      {/* Footer  */}
-      <Footer />
     </div>
   );
 };
